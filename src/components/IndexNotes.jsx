@@ -62,14 +62,14 @@ const IndexNotes = ({onClickEditButton}) => {
               {notes.length > 0 &&
                 notes.map((note) => (
                   <tr key={note.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-white">
-                    <th className="py-4 px-6">{note.id}</th>
+                    <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{note.id}</th>
                     <th
                       scope="row"
                       className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                     >
                       {note.title}
                     </th>
-                    <td className="py-4 px-6">{note.description}</td>
+                    <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{note.description}</td>
                     <td className="py-4 px-6">
                     {note?.tags && note.tags.map((tag) => 
                       <p key={tag.id} className="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 mb-1 px-2.5 py-0.5 rounded">{tag.name}</p>

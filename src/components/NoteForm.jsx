@@ -42,9 +42,11 @@ const NoteForm = ({ saveOpen }) => {
   }, []);
 
   useEffect(() => {
-    if(tagsIndexLocal.length === 0) {
-      tagsIndexLocal = tagsIndex;
-    }
+     if(tagsIndexLocal.length === 0) {
+       tagsIndexLocal = tagsIndex;
+       setSelectedTag({ id: 0, name: "" });
+     }
+
     if (enteredTag != "") {
       const tagAdded = tagsIndex.filter((tag) => tag.name === enteredTag);
       setFormData((prevForm) => ({
@@ -128,6 +130,7 @@ const NoteForm = ({ saveOpen }) => {
       tags: [],
     });
     setOpenModalNotes(false);
+    tagsIndexLocal = [];
   };
 
   const onCloseModal = () => {
@@ -138,7 +141,9 @@ const NoteForm = ({ saveOpen }) => {
       tags: [],
     });
     setOpenModalNotes(false);
+    setSelectedTag({ id: 0, name: "" });
     setNoteEdit({});
+    tagsIndexLocal = [];
   };
 
   const changeNewTag = () => {
@@ -152,6 +157,7 @@ const NoteForm = ({ saveOpen }) => {
       return;
     }
     storeTag({ name: newTag });
+    tagsIndexLocal = [];
     setMessageTag("");
     setNewTag("");
     setShowInputNewTag(false);

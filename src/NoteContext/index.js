@@ -125,6 +125,7 @@ function NoteProvider(props) {
 
   const loadTags = (resultado) => {
     setTagsIndex(resultado.data);
+    console.log(tagsIndex);
   };
 
   const storeTag = (body ) => {
